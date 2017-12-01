@@ -16,6 +16,17 @@ stackMethods.push = function(value) {
 }; 
 
 stackMethods.pop = function() {
-  this.extraStorage[this.counter] = this.storage[this.counter];
-  this.
+  if ((this.counter - 1) >= 0) {
+    this.extraStorage[this.counter - 1 ] = this.storage[this.counter - 1];
+    delete this.storage[this.counter - 1];
+    this.counter--;
+    return this.extraStorage[this.counter];
+  } else {
+    this.counter = 0;
+    return this.counter;
+  }
+};
+
+stackMethods.size = function () {
+  return Object.keys(this.storage).length;
 };
