@@ -24,5 +24,5 @@ Stack.prototype.pop = function() {
   } else {
     this.counter = 0;
     return this.counter;
-  }
+  } 
 };
