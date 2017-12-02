@@ -40,13 +40,13 @@ var LinkedList = function() {
 
   list.contains = function(target, node = list.head) {
     //var finder = function(node, target) {
-      if (node.value === target) {
-        return true;
-      }
-      if (node.next === null) {
-        return false;
-      }
-      return list.contains(target, node.next);
+    if (node.value === target) {
+      return true;
+    }
+    if (node.next === null) {
+      return false;
+    }
+    return list.contains(target, node.next);
     //}; 
     //return finder(list.head, target);    
 
