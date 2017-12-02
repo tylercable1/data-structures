@@ -14,19 +14,37 @@ HashTable.prototype.insert = function(k, v) {
     bucket.push(tuple);
     this._storage.set(index, bucket);
   } else {
-    bucket.push(tuple); 
+    //for loop to check this._storage.get(index)[0] for k
+    for (i = 0; i < this._storage.get(index).length; i++) {
+      if (this._storage.get(index)[i][0] === k) {
+        this._storage.get(index)[i][1] = v;
+      } else {
+    // if it equals then we replace this._storage.get(index)[1] = v
+    //else
+        this._storage.get(index).push(tuple);             //push(tuple); 
+      }
+    }
   }
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  
-  return this._storage.get(index);
+  for (var i = 0; i < this._storage.get(index).length; i++) {
+    if (this._storage.get(index)[i][0] === k) {
+      return this._storage.get(index)[i][1];
+    }
+  }
 
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
+  for (i = 0; i < this._storage.get(index).length; i++) {
+    if (this._storage.get(index)[i][0] === k) {
+      this._storage.get(index).splice(this._storage.get(index)[i], 1);
+    }
+  
+  }
 };
 
 
