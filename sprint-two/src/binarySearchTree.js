@@ -11,6 +11,9 @@ var BinarySearchTree = function(value) {
 
 
 BinarySearchTree.prototype.insert = function(value) {
+  // check new value against original val
+  // if > assign new instance to this.right
+  // if < assign to this.left  
 
 };
 
